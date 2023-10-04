@@ -58,9 +58,9 @@ document.getElementById("mint-nft").addEventListener("click", async () => {
 
     
     try {
-        const contractAddress = "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"; // Replace with your contract's address
+        const contractAddress = "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"; 
         const contractABI = [
-            0xd9145CCE52D386f254917e481eB44e9943F39138  // Your contract ABI here
+            0xd9145CCE52D386f254917e481eB44e9943F39138 
         ];
         const contract = new web3.eth.Contract(contractABI, contractAddress);
         const accounts = await web3.eth.getAccounts();
