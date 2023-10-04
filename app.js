@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const web3 = window.web3;
 
-    // Check if web3 is available
+    
     if (typeof web3 === "undefined") {
         alert("Please install Metamask or use a web3-enabled browser.");
         return;
@@ -28,16 +28,16 @@ document.addEventListener("DOMContentLoaded", async function () {
 if (typeof web3 !== 'undefined') {
     const connectButton = document.getElementById("connect-metamask");
 
-    // Event listener for the "Connect Metamask" button
+    
     connectButton.addEventListener("click", async () => {
         try {
-            // Request MetaMask's permission to access the user's accounts
+           
             const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
 
-            // User approved, and `accounts` now contains the user's Ethereum wallet address
+            
             const userAddress = accounts[0];
 
-            // Use `userAddress` for your application's functionality (e.g., minting NFTs)
+          
             console.log("Connected to MetaMask. User Address:", userAddress);
         } catch (error) {
             console.error("Error connecting to MetaMask:", error);
@@ -47,7 +47,7 @@ if (typeof web3 !== 'undefined') {
     console.error("MetaMask is not installed.");
 }
 
-    // Mint NFT button click event
+    // Mint NFT button 
 document.getElementById("mint-nft").addEventListener("click", async () => {
     const nftUrl = document.getElementById("nft-url").value;
 
@@ -56,7 +56,7 @@ document.getElementById("mint-nft").addEventListener("click", async () => {
         return;
     }
 
-    // Call the mintNFT function on your smart contract
+    
     try {
         const contractAddress = "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"; // Replace with your contract's address
         const contractABI = [
@@ -66,7 +66,7 @@ document.getElementById("mint-nft").addEventListener("click", async () => {
         const accounts = await web3.eth.getAccounts();
         const userAddress = accounts[0];
 
-        // Send a transaction to mint the NFT
+       
         await contract.methods.mintNFT(userAddress, nftUrl).send({ from: userAddress });
 
         alert("NFT minted successfully!");
@@ -74,6 +74,5 @@ document.getElementById("mint-nft").addEventListener("click", async () => {
         console.error("Error minting NFT:", error);
     }
 });
-        // Call the mintNFT function on your smart contract
-        // Example: Call your smart contract's mintNFT function here
+     
     });
