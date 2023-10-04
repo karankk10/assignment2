@@ -3,19 +3,19 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Counters.sol"; // Import the Counters library
+import "@openzeppelin/contracts/utils/Counters.sol"; 
 
 contract MyNFT is ERC721URIStorage, Ownable {
-    using Counters for Counters.Counter; // Use the Counters library
+    using Counters for Counters.Counter; 
 
-    Counters.Counter private tokenIdCounter; // Declare the counter
+    Counters.Counter private tokenIdCounter; 
 
     constructor() ERC721("MyNFT", "MNFT") {}
 
-    // Function to mint an NFT with the provided token URI
+    
     function mintNFT(address recipient, string memory tokenURI) public onlyOwner {
-        uint256 tokenId = tokenIdCounter.current(); // Get the current tokenId
-        tokenIdCounter.increment(); // Increment the tokenId counter
+        uint256 tokenId = tokenIdCounter.current(); 
+        tokenIdCounter.increment();
         _mint(recipient, tokenId);
         _setTokenURI(tokenId, tokenURI);
     }
